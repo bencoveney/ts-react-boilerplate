@@ -1,6 +1,11 @@
 {
-    "extends": [
-        "tslint:latest",
-        "tslint-react"
-    ]
+  "extends": [
+    "tslint:latest",
+    "tslint-react"
+  ],
+  "rules": {
+    "indent": [true, "spaces", 2],
+    "interface-name": [true, "never-prefix"],
+    "max-line-length": [true, 80]
+  }
 }

@@ -1,5 +1,7 @@
 # ts-react-boilerplate
 
+A boilerplate project for web applications.
+
 Includes:
 - TypeScript
 - React
@@ -13,6 +15,7 @@ Includes:
   - Source Maps
   - Favicons
 - Reset CSS
+- VSCode Configuration
 
 Scripts:
 - `npm start` - Start developing.

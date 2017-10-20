@@ -34,9 +34,10 @@
     "webpack-merge": "^4.1.0"
   },
   "scripts": {
+    "lint-webpack": "tslint ./webpack.*",
     "build": "webpack --config webpack.prod.ts",
     "start": "webpack-dev-server  --config webpack.dev.ts",
-    "test": "npm run build-production"
+    "test": "npm run lint-webpack && npm run build"
   },
   "repository": {
     "type": "git",
