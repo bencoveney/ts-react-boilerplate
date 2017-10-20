@@ -7,11 +7,12 @@ Includes:
   - tslint
   - tslint-react
 - Webpack
-  - Dev Server
+  - Development config with dev server
+  - Production config with compression
   - HTML Generation
   - Source Maps
-
-Compiles static site to `/docs/` for GitHub pages.
+  - Favicons
+- Reset CSS
 
 Scripts:
 - `npm start` - Start developing.

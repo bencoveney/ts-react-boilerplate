@@ -1,16 +1,24 @@
-import * as HtmlWebpackPlugin from "html-webpack-plugin";
-import * as path from "path";
-import * as webpack from "webpack";
+import * as CopyPlugin from "copy-webpack-plugin";
+import * as HtmlPlugin from "html-webpack-plugin";
+import * as Path from "path";
+import * as Webpack from "webpack";
 
-// tslint:disable-next-line:no-var-requires
+// tslint:disable:no-var-requires
+
+// No typings.
+const CleanPlugin = require("clean-webpack-plugin");
+const IncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
+
+// Load package definition.
 const packageJson = require("./package.json");
 
-const resolvePath = (target: string) => path.resolve(__dirname, target);
+// Shorthand for paths.
+const resolvePath = (target: string) => Path.resolve(__dirname, target);
 
-const config: webpack.Configuration = {
-    devServer: {
-        open: true,
-    },
+// Output to `/docs/` for GitHub pages.
+const outputDirectory = "docs";
+
+export const configuration: Webpack.Configuration = {
     devtool: "source-map",
     entry: [
         "./src/index.tsx",
@@ -40,15 +48,24 @@ const config: webpack.Configuration = {
     },
     output: {
         filename: "bundle.js",
-        path: resolvePath("docs"),
+        path: resolvePath(outputDirectory),
     },
     plugins: [
-        new HtmlWebpackPlugin({
+        new CleanPlugin([outputDirectory]),
+        new CopyPlugin([{
+            from: "assets/reset.css",
+            to: ".",
+        }]),
+        new HtmlPlugin({
             author: packageJson.author,
             chunksSortMode: "dependency",
             description: packageJson.description,
             template: resolvePath("./src/index.ejs"),
             title: packageJson.name,
+        }),
+        new IncludeAssetsPlugin({
+            append: false,
+            assets: "reset.css",
         }),
     ],
     resolve: {
@@ -56,4 +73,8 @@ const config: webpack.Configuration = {
     },
 };
 
-export default config;
+export const faviconOptions = {
+    background: "#000000",
+    logo: resolvePath("assets/favicon.png"),
+    title: packageJson.name,
+};
