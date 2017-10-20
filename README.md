@@ -20,3 +20,10 @@ Includes:
 Scripts:
 - `npm start` - Start developing.
 - `npm run build` - Compile once.
+
+Importing into your project:
+- Create your git repository.
+- Initialize the NPM project.
+- Optionally `git checkout -b boilerplate`
+- `git pull --allow-unrelated-histories https://github.com/bencoveney/ts-react-boilerplate.git master`
+- Resolve conflicts.
