@@ -1,6 +1,8 @@
 import * as React from "react";
 
-export default class App extends React.Component<{}, { count: number; }> {
+import { Header } from "../header/header";
+
+export class App extends React.Component<{}, { count: number; }> {
   public state = { count: 0 };
   private interval: number;
 
@@ -18,7 +20,7 @@ export default class App extends React.Component<{}, { count: number; }> {
   public render() {
     return (
       <div>
-        <h1>Hello world!</h1>
+        <Header value="Hello world!" />
         <div>
           Welcome to the react/typescript boilerplate {this.state.count}
         </div>
