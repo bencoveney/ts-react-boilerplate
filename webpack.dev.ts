@@ -24,6 +24,7 @@ faviconOptions.icons = {
 const configuration: Webpack.Configuration = {
   devServer: {
     open: true,
+    port: 3000,
     stats: "minimal",
   },
   devtool: "source-map",
