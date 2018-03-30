@@ -23,8 +23,8 @@ Includes:
 
 Scripts:
 
-- `npm start` - Start developing.
-- `npm run build` - Compile once.
+- `npm run dev` - Start developing.
+- `npm run test` - Lint everything and compile.
 
 Importing into your project:
 
