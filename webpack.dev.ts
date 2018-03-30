@@ -5,7 +5,7 @@ import * as Common from "./webpack.common";
 // tslint:disable:no-var-requires
 
 // No typings.
-const FaviconsPlugin = require("favicons-webpack-plugin");
+// const FaviconsPlugin = require("favicons-webpack-plugin");
 
 const faviconOptions = Object.create(Common.faviconOptions);
 faviconOptions.icons = {
@@ -34,7 +34,7 @@ const configuration: Webpack.Configuration = {
         NODE_ENV: JSON.stringify("development"),
       },
     }),
-    new FaviconsPlugin(faviconOptions),
+    // new FaviconsPlugin(faviconOptions),
   ],
 };
 
