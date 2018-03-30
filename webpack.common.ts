@@ -52,12 +52,12 @@ export const configuration: Webpack.Configuration = {
     path: resolvePath(outputDirectory),
   },
   plugins: [
-    // new CleanPlugin([outputDirectory]),
-    // new CopyPlugin([
-    //   { from: "assets/reset.css", to: "." },
-    //   { from: "node_modules/mdi/fonts", to: "./mdi/fonts" },
-    //   { from: "node_modules/mdi/css", to: "./mdi/css" },
-    // ]),
+    new CleanPlugin([outputDirectory]),
+    new CopyPlugin([
+      { from: "assets/reset.css", to: "." },
+      { from: "node_modules/mdi/fonts", to: "./mdi/fonts" },
+      { from: "node_modules/mdi/css", to: "./mdi/css" },
+    ]),
     new HtmlPlugin({
       author: packageJson.author,
       chunksSortMode: "dependency",
@@ -65,13 +65,13 @@ export const configuration: Webpack.Configuration = {
       template: resolvePath("./src/index.ejs"),
       title: packageJson.name,
     }),
-    // new IncludeAssetsPlugin({
-    //   append: false,
-    //   assets: [
-    //     "reset.css",
-    //     "mdi/css/materialdesignicons.min.css",
-    //   ],
-    // }),
+    new IncludeAssetsPlugin({
+      append: false,
+      assets: [
+        "reset.css",
+        "mdi/css/materialdesignicons.min.css",
+      ],
+    }),
   ],
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
