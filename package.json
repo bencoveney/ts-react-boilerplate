@@ -64,5 +64,8 @@
   "bugs": {
     "url": "https://github.com/bencoveney/ts-react-boilerplate/issues"
   },
-  "homepage": "https://github.com/bencoveney/ts-react-boilerplate#readme"
+  "homepage": "https://github.com/bencoveney/ts-react-boilerplate#readme",
+  "engines": {
+		"node": ">=6.13.0"
+	}
 }
