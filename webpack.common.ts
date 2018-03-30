@@ -26,6 +26,7 @@ export const configuration: Webpack.Configuration = {
   module: {
     rules: [
       {
+        exclude: resolvePath("node_modules"),
         include: resolvePath("src"),
         loaders: [ "awesome-typescript-loader" ],
         test: /\.tsx?$/,
@@ -37,6 +38,7 @@ export const configuration: Webpack.Configuration = {
       },
       {
         enforce: "pre",
+        exclude: resolvePath("node_modules"),
         include: resolvePath("src"),
         loader: "tslint-loader",
         options: {
