@@ -1,3 +1,4 @@
+import * as UglifyJSPlugin from "uglifyjs-webpack-plugin";
 import * as Webpack from "webpack";
 import * as WebpackMerge from "webpack-merge";
 import * as Common from "./webpack.common";
@@ -5,7 +6,6 @@ import * as Common from "./webpack.common";
 // tslint:disable:no-var-requires
 
 // No typings.
-const UglifyJSPlugin = require("uglifyjs-webpack-plugin");
 const FaviconsPlugin = require("favicons-webpack-plugin");
 
 const configuration: Webpack.Configuration = {

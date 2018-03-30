@@ -4,6 +4,8 @@
   "description": "Boilerplate project with TypeScript and React",
   "main": "docs/bundle.js",
   "dependencies": {
+    "@types/clean-webpack-plugin": "^0.1.2",
+    "@types/uglifyjs-webpack-plugin": "^1.1.0",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "favicons-webpack-plugin": "0.0.8",

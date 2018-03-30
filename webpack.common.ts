@@ -1,3 +1,4 @@
+import * as CleanPlugin from "clean-webpack-plugin";
 import * as CopyPlugin from "copy-webpack-plugin";
 import * as HtmlPlugin from "html-webpack-plugin";
 import * as Path from "path";
@@ -6,7 +7,6 @@ import * as Webpack from "webpack";
 // tslint:disable:no-var-requires
 
 // No typings.
-const CleanPlugin = require("clean-webpack-plugin");
 const IncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
 
 // Load package definition.
