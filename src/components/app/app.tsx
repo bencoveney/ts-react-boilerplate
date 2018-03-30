@@ -4,7 +4,7 @@ import { Header } from "../header/header";
 
 export class App extends React.Component<{}, { count: number; }> {
   public state = { count: 0 };
-  private interval: number;
+  private interval: number = -1;
 
   public componentWillMount() {
     this.interval = window.setInterval(
