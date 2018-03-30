@@ -26,7 +26,6 @@ export const configuration: Webpack.Configuration = {
   module: {
     rules: [
       {
-        exclude: resolvePath("node_modules"),
         include: resolvePath("src"),
         loaders: [ "awesome-typescript-loader" ],
         test: /\.tsx?$/,
@@ -50,6 +49,11 @@ export const configuration: Webpack.Configuration = {
   output: {
     filename: "bundle.js",
     path: resolvePath(outputDirectory),
+  },
+  performance: {
+    assetFilter(assetName) {
+      return assetName.indexOf("material-design-icons-webfont") !== -1;
+    },
   },
   plugins: [
     new CleanPlugin([outputDirectory]),
