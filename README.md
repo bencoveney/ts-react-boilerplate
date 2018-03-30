@@ -1,5 +1,7 @@
 # ts-react-boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/bencoveney/ts-react-boilerplate.svg)](https://greenkeeper.io/)
+
 A boilerplate project for web applications.
 
 Includes:
