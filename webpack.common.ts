@@ -1,3 +1,4 @@
+import * as CleanPlugin from "clean-webpack-plugin";
 import * as CopyPlugin from "copy-webpack-plugin";
 import * as HtmlPlugin from "html-webpack-plugin";
 import * as Path from "path";
@@ -6,7 +7,6 @@ import * as Webpack from "webpack";
 // tslint:disable:no-var-requires
 
 // No typings.
-const CleanPlugin = require("clean-webpack-plugin");
 const IncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
 
 // Load package definition.
@@ -26,7 +26,6 @@ export const configuration: Webpack.Configuration = {
   module: {
     rules: [
       {
-        exclude: resolvePath("node_modules"),
         include: resolvePath("src"),
         loaders: [ "awesome-typescript-loader" ],
         test: /\.tsx?$/,
@@ -38,6 +37,7 @@ export const configuration: Webpack.Configuration = {
       },
       {
         enforce: "pre",
+        include: resolvePath("src"),
         loader: "tslint-loader",
         options: {
           configFile: resolvePath("tslint.json"),
@@ -49,6 +49,11 @@ export const configuration: Webpack.Configuration = {
   output: {
     filename: "bundle.js",
     path: resolvePath(outputDirectory),
+  },
+  performance: {
+    assetFilter(assetName) {
+      return assetName.indexOf("material-design-icons-webfont") !== -1;
+    },
   },
   plugins: [
     new CleanPlugin([outputDirectory]),
