@@ -67,5 +67,10 @@
   "homepage": "https://github.com/bencoveney/ts-react-boilerplate#readme",
   "engines": {
     "node": ">=6.13.0"
+  },
+  "greenkeeper": {
+    "ignore": [
+      "@types/source-map"
+    ]
   }
 }
