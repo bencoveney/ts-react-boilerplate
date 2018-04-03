@@ -142,9 +142,6 @@ To get updates to dependencies and configuration files:
 
 ## Notes
 
-We are using a branch of `favicons-webpack-plugin` to get a fix for deprecation
-warnings.
-
 We are using a pre-release version of `awesome-typescript-loader` to get a fix
 for deprecation warnings.
 

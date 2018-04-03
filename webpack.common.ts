@@ -56,7 +56,10 @@ export const configuration: Webpack.Configuration = {
     },
   },
   plugins: [
-    new CleanPlugin([outputDirectory]),
+    new CleanPlugin(
+      [outputDirectory],
+      { verbose: false },
+    ),
     new CopyPlugin([
       { from: "assets/reset.css", to: "." },
       { from: "node_modules/mdi/fonts", to: "./mdi/fonts" },
