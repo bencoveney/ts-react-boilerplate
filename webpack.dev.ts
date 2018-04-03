@@ -2,9 +2,8 @@ import * as Webpack from "webpack";
 import * as WebpackMerge from "webpack-merge";
 import * as Common from "./webpack.common";
 
-// tslint:disable:no-var-requires
-
 // No typings.
+// tslint:disable-next-line:no-var-requires
 const FaviconsPlugin = require("favicons-webpack-plugin");
 
 const faviconOptions = Object.create(Common.faviconOptions);
