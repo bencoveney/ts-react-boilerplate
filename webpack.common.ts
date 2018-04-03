@@ -4,12 +4,12 @@ import * as HtmlPlugin from "html-webpack-plugin";
 import * as Path from "path";
 import * as Webpack from "webpack";
 
-// tslint:disable:no-var-requires
-
 // No typings.
+// tslint:disable-next-line:no-var-requires
 const IncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
 
-// Load package definition.
+// Load package definition so we can pluck out anything relevant.
+// tslint:disable-next-line:no-var-requires
 const packageJson = require("./package.json");
 
 // Shorthand for paths.
@@ -80,6 +80,7 @@ export const configuration: Webpack.Configuration = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
+  stats: "minimal",
 };
 
 export const faviconOptions = {

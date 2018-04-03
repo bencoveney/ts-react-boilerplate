@@ -2,8 +2,8 @@
   "files.exclude": {
     "node_modules": true
   },
-  "editor.detectIndentation": false,
   "editor.tabSize": 2,
+  "editor.insertSpaces": true,
   "editor.rulers": [
     80
   ]

@@ -1,38 +1,155 @@
 # ts-react-boilerplate
 
+[![CircleCI](https://circleci.com/gh/bencoveney/ts-react-boilerplate/tree/master.svg?style=shield)](https://circleci.com/gh/bencoveney/ts-react-boilerplate/tree/master)
 [![Greenkeeper badge](https://badges.greenkeeper.io/bencoveney/ts-react-boilerplate.svg)](https://greenkeeper.io/)
 
-A boilerplate project for web applications.
+A boilerplate configuration for web applications with TypeScript, React and
+WebPack.
 
-Includes:
+## About
 
-- TypeScript
-- React
-- Linting
-  - tslint
-  - tslint-react
-  - markdownlint
-- Webpack
-  - Development config with dev server
-  - Production config with compression
-  - HTML Generation
-  - Source Maps
-  - Favicons
-- Reset CSS
-- Material Design Icons
-- VSCode Configuration
-- JSON Development Server
+This project aims to simplify the process of getting up-and-running with a
+complete base configuration to build upon.
 
-Scripts:
+With many boilerplate projects there will be a lot of configuration files and
+dependencies and it can be difficult to work out why things are included and
+what can be changed. `ts-react-boilerplate` aims to have readable, documented
+configuration files to help modifications be made in then future.
 
-- `npm run dev` - Start developing.
-- `npm run test` - Lint everything and compile.
+Rather than installing the boilerplate project using a CLI tool or NPM package
+we recommend you pull/merge the git repository into a branch in your project.
+This allows you to:
 
-Importing into your project:
+- Pick which parts of the configuration you want.
+- Merge the boilerplate in to your existing project.
+- Pull again at a later date to get updated dependencies and configuration.
 
-- Create your git repository.
-- Initialize the NPM project.
-- Optionally `git checkout -b boilerplate`
-- `git pull --allow-unrelated-histories
- https://github.com/bencoveney/ts-react-boilerplate.git master`
-- Resolve conflicts.
+See "Usage - Install" for instructions.
+
+## Requirements
+
+Requires node `circleci/node:6.13` and compiles to the TypeScript `es6` target
+by default.
+
+## React and TypeScript
+
+The project includes TypeScript compilation which can be configured in `tsconfig.json`.
+
+- `src/index.tsx` serves as the initial entry point and starts rendering React
+  at the root of your document.
+- `src/components/` contains some sample react components.
+
+All webpack configuration files are also written in TypeScript.
+
+## Webpack
+
+A complete up-to-date webpack configuration is included with:
+
+- Source maps.
+- HTML page creation from the `src/index.ejs` template.
+- Favicons generation using `assets/favicon.png`.
+- Inclusion of style and image assets.
+
+Relevant information (for example the project name) is loaded from the
+`package.json` file and used throughout.
+
+Webpack output goes to the `docs/` directory by default for easy integration
+with GitHub Pages.
+
+- `webpack.common.ts` contains the base configuration that will be applied in
+  all scenarios.
+- `webpack.dev.ts` contains development configuration for quicker compilation
+  and easier debugging.
+- `webpack.prod.ts` contains production configuration which produces a
+  compressed bundle.
+
+## Linting
+
+TypeScript code is linted using the recommended `tslint` ruleset as well as the
+`tslint-react` rules. This is configured in `tslint.json` and generally uses
+the default rule-set, with a couple of exceptions:
+
+- Perfer 2 spaces for indentation.
+- Avoid `I` prefix on interfaces.
+- Shorter line lengths of 80 characters.
+- `no-implicit-dependencies` to support `devDependencies` in `package.json`
+
+Markdown linting is included and can be configured in `mdlint.json`.
+
+## Styling
+
+A lightweight CSS reset is included and can be found in `assets/reset.css`.
+
+The extended Material Design Icons library is automatically included.
+
+## VSCode
+
+Editor settings are included `.vscode/settings.json` and reflect linter rules.
+Install the [npm extension](vscode npm) for script support.
+
+## CI
+
+Configuration for CircleCI (v2) is included in `.circleci/config.yml` to support
+this project. If you need CI it is straightforward to set up and free for open
+source projects. The config file specified the node version and test command.
+
+Greenkeeper is used to keep this project's dependencies up to date. We have
+some additional content in `package.json` to work around
+[this issue](source-map issue).
+
+## Usage
+
+### Install
+
+To set up the boilerplate in your project:
+
+1. You need a git repository. Create a new one or open an existing one.
+2. If you are creating a new project you may want to commit an initial
+   `package.json` using `npm init`
+3. Start a branch using `git checkout -b boilerplate`
+4. Pull the boilerplate project's master branch into your current one:
+   `git pull --allow-unrelated-histories
+   https://github.com/bencoveney/ts-react-boilerplate.git master`
+5. Resolve any conflicts - for example combining conflicting `dependencies` in
+   `package.json`.
+6. `npm install` to get the dependencies.
+7. `npm test` to conform everything is working.
+8. You may wish to squash the merge commit to avoid boilerplate project entries
+   appearing in the commit log.
+
+### Upgrade
+
+To get updates to dependencies and configuration files:
+
+1. Start a branch using `git checkout -b boilerplate`
+2. Pull the boilerplate project's master branch into your current one:
+   `git pull --allow-unrelated-histories
+   https://github.com/bencoveney/ts-react-boilerplate.git master`
+3. Resolve any conflicts - for example combining conflicting `dependencies` in
+   `package.json`.
+4. `npm install` to get the dependencies.
+5. `npm test` to conform everything is working.
+6. You may wish to squash the merge commit to avoid boilerplate project entries
+   appearing in the commit log.
+
+## Scripts
+
+- `npm test` - Runs all `lint-` tasks and the `prod` build.
+- `npm run prod` - Runs webpack using the `prod` configuration.
+- `npm run dev` - Runs webpack using the `dev` configuration.
+- `npm run lint-markdown` - Lints markdown files.
+- `npm run lint-webpack` - Lints webpack config files.
+
+## Notes
+
+We are using a branch of `favicons-webpack-plugin` to get a fix for deprecation
+warnings.
+
+We are using a pre-release version of `awesome-typescript-loader` to get a fix
+for deprecation warnings.
+
+We are using a specific version of `@types/source-map` to fix issues in webpack
+compilation.
+
+[vscode npm]: https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script
+[source-map issue]: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/23649
