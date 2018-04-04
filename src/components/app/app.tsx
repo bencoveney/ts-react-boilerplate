@@ -1,8 +1,9 @@
 import * as React from "react";
+import { AppContainer } from "react-hot-loader";
 
 import { Header } from "../header/header";
 
-export class App extends React.Component<{}, { count: number; }> {
+export default class App extends React.Component<{}, { count: number; }> {
   public state = { count: 0 };
   private interval: number = -1;
 

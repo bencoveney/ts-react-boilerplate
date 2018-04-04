@@ -27,7 +27,10 @@ export const configuration: Webpack.Configuration = {
     rules: [
       {
         include: resolvePath("src"),
-        loaders: [ "awesome-typescript-loader" ],
+        loaders: [
+          "babel-loader",
+          "awesome-typescript-loader",
+        ],
         test: /\.tsx?$/,
       },
       {

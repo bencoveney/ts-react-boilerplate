@@ -3,7 +3,15 @@
   "version": "1.0.0",
   "description": "Boilerplate project with TypeScript and React",
   "main": "docs/bundle.js",
-  "dependencies": {},
+  "dependencies": {
+    "@types/react-hot-loader": "^3.0.6",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react-hot-loader": "^4.0.1"
+  },
   "devDependencies": {
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.1",
@@ -42,7 +50,7 @@
     "lint-markdown": "markdownlint --config ./mdlint.json ./README.md",
     "lint-webpack": "tslint ./webpack.*",
     "test": "npm run lint-webpack && npm run lint-markdown && npm run prod",
-    "dev": "webpack-dev-server --config webpack.dev.ts --mode development",
+    "dev": "webpack-dev-server --config webpack.dev.ts --mode development --inline --hot",
     "prod": "webpack --config webpack.prod.ts --mode production"
   },
   "repository": {
