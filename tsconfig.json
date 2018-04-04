@@ -4,5 +4,8 @@
     "strict": true,
     "target": "es6",
     "jsx": "react"
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "silent": true
   }
 }

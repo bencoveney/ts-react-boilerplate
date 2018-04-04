@@ -10,6 +10,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "error-overlay-webpack-plugin": "^0.1.4",
     "react-hot-loader": "^4.0.1"
   },
   "devDependencies": {
@@ -50,7 +51,7 @@
     "lint-markdown": "markdownlint --config ./mdlint.json ./README.md",
     "lint-webpack": "tslint ./webpack.*",
     "test": "npm run lint-webpack && npm run lint-markdown && npm run prod",
-    "dev": "webpack-dev-server --config webpack.dev.ts --mode development --inline --hot",
+    "dev": "webpack-dev-server --config webpack.dev.ts --mode development --hot",
     "prod": "webpack --config webpack.prod.ts --mode production"
   },
   "repository": {
