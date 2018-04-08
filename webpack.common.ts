@@ -18,6 +18,14 @@ const resolvePath = (target: string) => Path.resolve(__dirname, target);
 // Output to `/docs/` for GitHub pages.
 const outputDirectory = "docs";
 
+export const stats = {
+  assets: false,
+  children: false,
+  hash: false,
+  modules: false,
+  version: true,
+};
+
 export const configuration: Webpack.Configuration = {
   devtool: "source-map",
   entry: [
@@ -27,7 +35,10 @@ export const configuration: Webpack.Configuration = {
     rules: [
       {
         include: resolvePath("src"),
-        loaders: [ "awesome-typescript-loader" ],
+        loaders: [
+          "babel-loader",
+          "awesome-typescript-loader",
+        ],
         test: /\.tsx?$/,
       },
       {
@@ -41,6 +52,7 @@ export const configuration: Webpack.Configuration = {
         loader: "tslint-loader",
         options: {
           configFile: resolvePath("tslint.json"),
+          formatter: "stylish",
         },
         test: /\.tsx?$/,
       },
@@ -83,7 +95,7 @@ export const configuration: Webpack.Configuration = {
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
   },
-  stats: "minimal",
+  stats,
 };
 
 export const faviconOptions = {
