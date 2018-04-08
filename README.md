@@ -45,6 +45,7 @@ All webpack configuration files are also written in TypeScript.
 
 A complete up-to-date webpack configuration is included with:
 
+- Hot module reloading.
 - Source maps.
 - HTML page creation from the `src/index.ejs` template.
 - Favicons generation using `assets/favicon.png`.
@@ -59,9 +60,12 @@ with GitHub Pages.
 - `webpack.common.ts` contains the base configuration that will be applied in
   all scenarios.
 - `webpack.dev.ts` contains development configuration for quicker compilation
-  and easier debugging.
+  and easier debugging. When running in the browser any JavaScript errors will
+  be shown in an error overlay.
 - `webpack.prod.ts` contains production configuration which produces a
   compressed bundle.
+
+The file `.babelrc` supports hot module reloading (using `react-hot-loader`).
 
 ## Linting
 
