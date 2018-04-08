@@ -3,9 +3,9 @@
     "sourceMap": true,
     "strict": true,
     "target": "es6",
-    "jsx": "react"
+    "jsx": "react",
+    "moduleResolution": "node"
   },
   "awesomeTypescriptLoaderOptions": {
-    "silent": true
   }
 }
