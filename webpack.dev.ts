@@ -38,6 +38,9 @@ const configuration: Webpack.Configuration = {
     }),
     new FaviconsPlugin(faviconOptions),
     new ErrorOverlayPlugin(),
+    new Webpack.WatchIgnorePlugin([
+      /css\.d\.ts$/,
+    ]),
   ],
 };
 

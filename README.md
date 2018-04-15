@@ -85,9 +85,12 @@ The `package.json` file is linted and can be configured in
 
 ## Styling
 
-A lightweight CSS reset is included and can be found in `assets/reset.css`.
+CSS can be structured as CSS modules, with typings files automatically
+generated.
 
-The extended Material Design Icons library is automatically included.
+The following libraries are also included during the webpack build:
+- Meyerweb CSS reset
+- Extended material design icons library.
 
 ## VSCode
 

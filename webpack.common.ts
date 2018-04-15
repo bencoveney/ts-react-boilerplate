@@ -56,6 +56,21 @@ export const configuration: Webpack.Configuration = {
         },
         test: /\.tsx?$/,
       },
+      {
+        include: resolvePath("src/components"),
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "typings-for-css-modules-loader",
+            options: {
+              camelCase: true,
+              modules: true,
+              namedExport: true,
+            },
+          },
+        ],
+      },
     ],
   },
   output: {
@@ -73,7 +88,7 @@ export const configuration: Webpack.Configuration = {
       { verbose: false },
     ),
     new CopyPlugin([
-      { from: "assets/reset.css", to: "." },
+      { from: "node_modules/reset-css/reset.css", to: "." },
       { from: "node_modules/mdi/fonts", to: "./mdi/fonts" },
       { from: "node_modules/mdi/css", to: "./mdi/css" },
     ]),
