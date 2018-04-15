@@ -89,6 +89,7 @@ CSS can be structured as CSS modules, with typings files automatically
 generated.
 
 The following libraries are also included during the webpack build:
+
 - Meyerweb CSS reset
 - Extended material design icons library.
 
