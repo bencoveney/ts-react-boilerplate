@@ -96,7 +96,7 @@ The following libraries are also included during the webpack build:
 ## VSCode
 
 Editor settings are included `.vscode/settings.json` and reflect linter rules.
-Install the [npm extension](vscode npm) for script support.
+Install the [npm extension][vscode npm] for script support.
 
 ## CI
 
@@ -106,7 +106,7 @@ source projects. The config file specified the node version and test command.
 
 Greenkeeper is used to keep this project's dependencies up to date. We have
 some additional content in `package.json` to work around
-[this issue](source-map issue).
+[this issue][source-map issue].
 
 ## Usage
 

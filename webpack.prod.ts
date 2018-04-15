@@ -14,11 +14,6 @@ const configuration: Webpack.Configuration = {
     new UglifyJSPlugin({
       sourceMap: true,
     }),
-    new Webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("production"),
-      },
-    }),
     new FaviconsPlugin(Common.faviconOptions),
   ],
 };

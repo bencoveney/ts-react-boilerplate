@@ -109,6 +109,7 @@ export const configuration: Webpack.Configuration = {
   ],
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
+    symlinks: false,
   },
   stats,
 };

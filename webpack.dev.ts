@@ -31,11 +31,6 @@ const configuration: Webpack.Configuration = {
   },
   devtool: "source-map",
   plugins: [
-    new Webpack.DefinePlugin({
-      "process.env": {
-        NODE_ENV: JSON.stringify("development"),
-      },
-    }),
     new FaviconsPlugin(faviconOptions),
     new ErrorOverlayPlugin(),
     new Webpack.WatchIgnorePlugin([
