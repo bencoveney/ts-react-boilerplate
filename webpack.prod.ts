@@ -10,6 +10,7 @@ const FaviconsPlugin = require("favicons-webpack-plugin");
 
 const configuration: Webpack.Configuration = {
   devtool: "source-map",
+  mode: "production",
   plugins: [
     new UglifyJSPlugin({
       sourceMap: true,
