@@ -30,6 +30,7 @@ const configuration: Webpack.Configuration = {
     stats: Common.stats,
   },
   devtool: "source-map",
+  mode: "development",
   plugins: [
     new FaviconsPlugin(faviconOptions),
     new ErrorOverlayPlugin(),
