@@ -36,7 +36,7 @@
     "react-hot-loader": "^4.0.1",
     "reset-css": "^3.0.0",
     "source-map-loader": "^0.2.3",
-    "style-loader": "^0.20.3",
+    "style-loader": "^0.21.0",
     "ts-node": "^6.0.0",
     "tslint": "^5.9.1",
     "tslint-loader": "^3.6.0",
