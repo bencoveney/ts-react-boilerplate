@@ -9,12 +9,18 @@ import * as Common from "./webpack.common";
 const FaviconsPlugin = require("favicons-webpack-plugin");
 
 const configuration: Webpack.Configuration = {
+  // Include source maps.
   devtool: "source-map",
+
   mode: "production",
+
   plugins: [
+    // Compress JavaScript output.
     new UglifyJSPlugin({
       sourceMap: true,
     }),
+
+    // Generate all favicons.
     new FaviconsPlugin(Common.faviconOptions),
   ],
 };
