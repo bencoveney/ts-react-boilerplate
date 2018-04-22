@@ -6,7 +6,7 @@ import webpackConfig from "./webpack.karma";
 // Karma configuration options, extended to allow additional plugin options.
 const options: Karma.ConfigOptions & { [key: string]: any } = {
   // Browsers that tests will be run in.
-  browsers: ["jsdom"],
+  browsers: ["Chrome"],
 
   // Code coverage report output.
   coverageIstanbulReporter: {
@@ -25,6 +25,10 @@ const options: Karma.ConfigOptions & { [key: string]: any } = {
 
   // Framework integrations that will be included while testing.
   frameworks: ["jasmine"],
+
+  mime: {
+    "text/x-typescript": ["ts", "tsx"],
+  },
 
   // Preprocess test files with webpack.
   preprocessors: {
