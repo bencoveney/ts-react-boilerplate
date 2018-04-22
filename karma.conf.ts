@@ -1,12 +1,14 @@
+import * as Path from "path";
 import * as Webpack from "webpack";
 import webpackConfig from "./webpack.karma";
 
 module.exports = (config: any) => {
   config.set({
     browsers: ["jsdom"],
-    coverageReporter: {
-      dir : "coverage/",
-      type : "html",
+    coverageIstanbulReporter: {
+      dir: Path.join(__dirname, "coverage"),
+      fixWebpackSourcePaths: true,
+      reports: [ "html" ],
     },
     files: [
       {
@@ -18,7 +20,7 @@ module.exports = (config: any) => {
     preprocessors: {
       "src/tests.ts": ["webpack", "sourcemap"],
     },
-    reporters: ["spec", "coverage"],
+    reporters: ["spec", "coverage-istanbul"],
     singleRun: true,
     webpack: webpackConfig,
     webpackServer: {
