@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 
 import { AppContainer } from "react-hot-loader";
 
-import App from "./components/app/app";
+import { App } from "./components/app/app";
 
 const render = (Hue: React.ComponentClass) => {
   ReactDOM.render(
@@ -19,7 +19,7 @@ render(App);
 // Hot Module Replacement API
 if (module.hot) {
   module.hot.accept("./components/app/app", () => {
-    const NextApp = require("./components/app/app").default;
+    const NextApp = require("./components/app/app").App;
     render(NextApp);
   });
 }

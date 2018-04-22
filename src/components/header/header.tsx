@@ -4,9 +4,9 @@ import * as Styles from "./styles.css";
 export const Header: React.SFC<{
   value: string,
 }> = (
-  props,
+  { value },
 ) => (
   <h1 className={Styles.header}>
-    {props.value}
+    {value}
   </h1>
 );

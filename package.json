@@ -6,8 +6,11 @@
   "devDependencies": {
     "@types/clean-webpack-plugin": "^0.1.2",
     "@types/copy-webpack-plugin": "^4.4.1",
+    "@types/enzyme": "^3.1.10",
+    "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/html-webpack-plugin": "^2.30.3",
     "@types/jasmine": "^2.8.6",
+    "@types/jasmine-enzyme": "^3.6.3",
     "@types/node": "^9.6.2",
     "@types/react": "^16.3.5",
     "@types/react-dom": "^16.0.4",
@@ -26,12 +29,15 @@
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "error-overlay-webpack-plugin": "^0.1.4",
     "favicons-webpack-plugin": "0.0.9",
     "html-webpack-include-assets-plugin": "^1.0.4",
     "html-webpack-plugin": "^3.2.0",
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "^3.1.0",
+    "jasmine-enzyme": "^6.0.0",
     "jsdom": "^11.8.0",
     "karma": "^2.0.0",
     "karma-coverage": "^1.1.1",
@@ -62,8 +68,8 @@
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
-    "lint": "tslint ./webpack.* && markdownlint --config ./mdlint.json ./README.md",
-    "test": "npm run lint && npm run prod",
+    "lint": "tslint ./*.ts && markdownlint --config ./mdlint.json ./README.md",
+    "test": "npm run lint && npm run karma && npm run prod",
     "dev": "webpack-dev-server --config webpack.dev.ts --mode development --hot",
     "prod": "webpack --config webpack.prod.ts --mode production",
     "karma": "karma start"
