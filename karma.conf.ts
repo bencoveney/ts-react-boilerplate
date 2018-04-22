@@ -1,22 +1,24 @@
 import * as Webpack from "webpack";
-import webpackConfig from "./webpack.dev";
-
-webpackConfig.entry = undefined;
+import webpackConfig from "./webpack.karma";
 
 module.exports = (config: any) => {
   config.set({
     browsers: ["jsdom"],
+    coverageReporter: {
+      dir : "coverage/",
+      type : "html",
+    },
     files: [
       {
-        pattern: "src/**/*test.tsx",
+        pattern: "src/tests.ts",
         watched: false,
       },
     ],
     frameworks: ["jasmine"],
     preprocessors: {
-      "src/**/*test.tsx": ["webpack"],
+      "src/tests.ts": ["webpack", "sourcemap"],
     },
-    reporters: ["spec"],
+    reporters: ["spec", "coverage"],
     singleRun: true,
     webpack: webpackConfig,
     webpackServer: {
