@@ -80,9 +80,6 @@ the default rule-set, with a couple of exceptions:
 
 Markdown linting is included and can be configured in `mdlint.json`.
 
-The `package.json` file is linted and can be configured in
-`.npmpackagejsonlintrc.json`.
-
 ## Styling
 
 CSS can be structured as CSS modules, with typings files automatically
