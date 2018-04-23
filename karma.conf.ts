@@ -15,6 +15,11 @@ const options: Karma.ConfigOptions & { [key: string]: any } = {
     reports: [ "html" ],
   },
 
+  // Prevent duplicated console output.
+  client: {
+    captureConsole: false,
+  },
+
   // Files that will be loaded as entry points for test execution.
   files: [
     {

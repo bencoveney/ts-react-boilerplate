@@ -158,10 +158,11 @@ To get updates to dependencies and configuration files:
 
 ## Scripts
 
-- `npm test` - Runs `lint` and `prod` tasks.
+- `npm test` - Runs `lint`, `karma` and `prod` tasks.
 - `npm run prod` - Runs webpack using the `prod` configuration.
 - `npm run dev` - Runs webpack using the `dev` configuration.
-- `npm run lint` - Lints markdown and webpack config files.
+- `npm run lint` - Lints markdown, karma and webpack config files.
+- `npm run karma` - Runs the unit tests.
 
 ## Notes
 
