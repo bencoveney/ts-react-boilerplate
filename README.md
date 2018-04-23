@@ -93,6 +93,19 @@ The following libraries are also included during the webpack build:
 - Meyerweb CSS reset
 - Extended material design icons library.
 
+## Unit Tests
+
+Unit tests are run using Karma which is configured in `karma.conf.ts`. By
+default tests are executed in Chrome. `webpack.karma.ts` is a webpack
+configuration file specifically for running tests.
+
+Any files in the `src` repository named `*.test.ts` or `*.test.tsx` will be
+included in test execution. The Jasmine test framework with Enzyme extensions
+(for React testing) are included for writing tests.
+
+Coverage is tracked and can be viewed by opening `coverage/index.html` in your
+web browser. Any files without `test` in the name will have coverage generated.
+
 ## VSCode
 
 Editor settings are included `.vscode/settings.json` and reflect linter rules.
@@ -145,10 +158,11 @@ To get updates to dependencies and configuration files:
 
 ## Scripts
 
-- `npm test` - Runs `lint` and `prod` tasks.
+- `npm test` - Runs `lint`, `karma` and `prod` tasks.
 - `npm run prod` - Runs webpack using the `prod` configuration.
 - `npm run dev` - Runs webpack using the `dev` configuration.
-- `npm run lint` - Lints markdown and webpack config files.
+- `npm run lint` - Lints markdown, karma and webpack config files.
+- `npm run karma` - Runs the unit tests.
 
 ## Notes
 

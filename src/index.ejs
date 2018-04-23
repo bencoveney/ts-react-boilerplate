@@ -6,12 +6,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Create page metadata using options inserted by webpack. -->
     <title><%= htmlWebpackPlugin.options.title %></title>
     <meta name="description" content="<%= htmlWebpackPlugin.options.description %>">
     <meta name="author" content="<%= htmlWebpackPlugin.options.author %>">
   </head>
 
   <body>
+    <!-- Application will be instantiated here. -->
     <div id="root"></div>
   </body>
 </html>

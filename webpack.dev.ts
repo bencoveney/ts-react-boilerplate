@@ -8,6 +8,7 @@ const FaviconsPlugin = require("favicons-webpack-plugin");
 // tslint:disable-next-line:no-var-requires
 const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
 
+// Only generate basic favicons during development.
 const faviconOptions = Object.create(Common.faviconOptions);
 faviconOptions.icons = {
   android: false,
@@ -23,16 +24,28 @@ faviconOptions.icons = {
 };
 
 const configuration: Webpack.Configuration = {
+  // Settings for webpack dev server.
   devServer: {
     inline: true,
     open: true,
     port: 3000,
     stats: Common.stats,
   },
+
+  // Include source maps.
   devtool: "source-map",
+
+  mode: "development",
+
   plugins: [
+    // Generate favicons.
     new FaviconsPlugin(faviconOptions),
+
+    // Show a useful overlay in the browser when an error occurs.
     new ErrorOverlayPlugin(),
+
+    // Ignore TypeScript definition files for CSS modules as they are being
+    // generated.
     new Webpack.WatchIgnorePlugin([
       /css\.d\.ts$/,
     ]),
