@@ -6,6 +6,22 @@
 A boilerplate configuration for web applications with TypeScript, React and
 WebPack.
 
+- [About](#about)
+- [Requirements](#requirements)
+- [React and TypeScript](#react-and-typescript)
+- [Webpack](#webpack)
+- [Linting](#linting)
+- [Styling](#styling)
+- [Unit Tests](#unit-tests)
+- [Editors](#editors)
+  - [VSCode](#vscode)
+- [CI](#ci)
+- [Scripts](#scripts)
+- [Usage](#usage)
+  - [Install](#install)
+  - [Upgrade](#upgrade)
+- [Notes](#notes)
+
 ## About
 
 This project aims to simplify the process of getting up-and-running with a
@@ -103,10 +119,19 @@ included in test execution. The Jasmine test framework with Enzyme extensions
 Coverage is tracked and can be viewed by opening `coverage/index.html` in your
 web browser. Any files without `test` in the name will have coverage generated.
 
-## VSCode
+## Editors
 
-Editor settings are included `.vscode/settings.json` and reflect linter rules.
-Install the [npm extension][vscode npm] for script support.
+General text editor settings are included in `.editorconfig` and reflect linter
+rules.
+
+### VSCode
+
+`.vscode/settings.json` has some additional configuration options defined and
+`.vscode/extensions.json` recommends the following extensions:
+
+- **npm** for script support.
+- **EditorConfig for VSCode** for `.editorconfig` support.
+- **TSLint** for in-editor code linting.
 
 ## CI
 
@@ -117,6 +142,14 @@ source projects. The config file specified the node version and test command.
 Greenkeeper is used to keep this project's dependencies up to date. We have
 some additional content in `package.json` to work around
 [this issue][source-map issue].
+
+## Scripts
+
+- `npm test` - Runs `lint`, `karma` and `prod` tasks.
+- `npm run prod` - Runs webpack using the `prod` configuration.
+- `npm run dev` - Runs webpack using the `dev` configuration.
+- `npm run lint` - Lints markdown, karma and webpack config files.
+- `npm run karma` - Runs the unit tests.
 
 ## Usage
 
@@ -153,14 +186,6 @@ To get updates to dependencies and configuration files:
 6. You may wish to squash the merge commit to avoid boilerplate project entries
    appearing in the commit log.
 
-## Scripts
-
-- `npm test` - Runs `lint`, `karma` and `prod` tasks.
-- `npm run prod` - Runs webpack using the `prod` configuration.
-- `npm run dev` - Runs webpack using the `dev` configuration.
-- `npm run lint` - Lints markdown, karma and webpack config files.
-- `npm run karma` - Runs the unit tests.
-
 ## Notes
 
 We are using a pre-release version of `awesome-typescript-loader` to get a fix
@@ -169,5 +194,4 @@ for deprecation warnings.
 We are using a specific version of `@types/source-map` to fix issues in webpack
 compilation.
 
-[vscode npm]: https://marketplace.visualstudio.com/items?itemName=eg2.vscode-npm-script
 [source-map issue]: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/23649
