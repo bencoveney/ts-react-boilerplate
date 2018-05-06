@@ -11,7 +11,7 @@ const IncludeAssetsPlugin = require("html-webpack-include-assets-plugin");
 // tslint:disable-next-line:no-var-requires
 const packageJson = require("./package.json");
 
-// Shorthand for paths.
+// Shorthand for building paths.
 const resolvePath = (target: string) => Path.resolve(__dirname, target);
 
 // Output to `/docs/` for GitHub pages.

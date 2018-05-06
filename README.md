@@ -7,9 +7,11 @@ A boilerplate configuration for web applications with TypeScript, React and
 WebPack.
 
 - [About](#about)
+  - [Caveats](#caveats)
 - [Requirements](#requirements)
 - [React and TypeScript](#react-and-typescript)
 - [Webpack](#webpack)
+- [Express Server](#express-server)
 - [Linting](#linting)
 - [Styling](#styling)
 - [Unit Tests](#unit-tests)
@@ -71,7 +73,7 @@ Relevant information (for example the project name) is loaded from the
 `package.json` file and used throughout.
 
 Webpack output goes to the `docs/` directory by default for easy integration
-with GitHub Pages.
+with GitHub Pages for static sites.
 
 - `webpack.common.ts` contains the base configuration that will be applied in
   all scenarios.
@@ -82,6 +84,17 @@ with GitHub Pages.
   compressed bundle.
 
 The file `.babelrc` supports hot module reloading (using `react-hot-loader`).
+
+## Express Server
+
+An express web-server is defined in `server/index.ts` which will serve the
+`docs` directory as a static site.
+
+When developing this file incorporates webpack's hot module reloading.
+
+If you need a server in production for funcionality like database access then
+you can extend the script as required. Even if your application is static, many
+app platforms will require a web-server component to host the files for users.
 
 ## Linting
 
