@@ -51,9 +51,9 @@ by default.
 
 The project includes TypeScript compilation which can be configured in `tsconfig.json`.
 
-- `src/index.tsx` serves as the initial entry point and starts rendering React
+- `client/index.tsx` serves as the initial entry point and starts rendering React
   at the root of your document.
-- `src/components/` contains some sample react components.
+- `client/components/` contains some sample react components.
 
 All webpack configuration files are also written in TypeScript.
 
@@ -63,7 +63,7 @@ A complete up-to-date webpack configuration is included with:
 
 - Hot module reloading.
 - Source maps.
-- HTML page creation from the `src/index.ejs` template.
+- HTML page creation from the `client/index.ejs` template.
 - Favicons generation using `assets/favicon.png`.
 - Inclusion of style and image assets.
 
@@ -112,7 +112,7 @@ Unit tests are run using Karma which is configured in `karma.conf.ts`. By
 default tests are executed in Chrome. `webpack.karma.ts` is a webpack
 configuration file specifically for running tests.
 
-Any files in the `src` repository named `*.test.ts` or `*.test.tsx` will be
+Any files in the `client` repository named `*.test.ts` or `*.test.tsx` will be
 included in test execution. The Jasmine test framework with Enzyme extensions
 (for React testing) are included for writing tests.
 

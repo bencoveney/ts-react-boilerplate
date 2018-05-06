@@ -1,4 +1,3 @@
-import * as CleanPlugin from "clean-webpack-plugin";
 import * as CopyPlugin from "copy-webpack-plugin";
 import * as HtmlPlugin from "html-webpack-plugin";
 import * as Path from "path";
@@ -16,7 +15,7 @@ const packageJson = require("./package.json");
 const resolvePath = (target: string) => Path.resolve(__dirname, target);
 
 // Output to `/docs/` for GitHub pages.
-const outputDirectory = "docs";
+export const outputDirectory = "docs";
 
 // General stats (console output) settings.
 export const stats = {
@@ -33,7 +32,7 @@ export const configuration: Webpack.Configuration = {
 
   // Specify the entry point to the bundling process.
   entry: [
-    "./src/index.tsx",
+    "./client/index.tsx",
   ],
 
   module: {
@@ -41,7 +40,7 @@ export const configuration: Webpack.Configuration = {
       // Loader for TypeScript files (.ts and .tsx). Include bable to support
       // the react hot module reloading.
       {
-        include: resolvePath("src"),
+        include: resolvePath("client"),
         loaders: [
           "babel-loader",
           "awesome-typescript-loader",
@@ -59,7 +58,7 @@ export const configuration: Webpack.Configuration = {
       // Loader for TSLint so that errors are checked during development.
       {
         enforce: "pre",
-        include: resolvePath("src"),
+        include: resolvePath("client"),
         loader: "tslint-loader",
         options: {
           configFile: resolvePath("tslint.json"),
@@ -71,7 +70,7 @@ export const configuration: Webpack.Configuration = {
       // Loader for CSS modules. Typings files (.d.ts) are automatically
       // generated.
       {
-        include: resolvePath("src/components"),
+        include: resolvePath("client/components"),
         test: /\.css$/,
         use: [
           "style-loader",
@@ -103,12 +102,6 @@ export const configuration: Webpack.Configuration = {
   },
 
   plugins: [
-    // Clean the output directory to ensure fresh output.
-    new CleanPlugin(
-      [outputDirectory],
-      { verbose: false },
-    ),
-
     // Copy certain asset files to the output directory.
     new CopyPlugin([
       { from: "node_modules/reset-css/reset.css", to: "." },
@@ -122,7 +115,7 @@ export const configuration: Webpack.Configuration = {
       author: packageJson.author,
       chunksSortMode: "dependency",
       description: packageJson.description,
-      template: resolvePath("./src/index.ejs"),
+      template: resolvePath("./client/index.ejs"),
       title: packageJson.name,
     }),
 
