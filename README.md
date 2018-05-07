@@ -7,7 +7,6 @@ A boilerplate configuration for web applications with TypeScript, React and
 WebPack.
 
 - [About](#about)
-  - [Caveats](#caveats)
 - [Requirements](#requirements)
 - [React and TypeScript](#react-and-typescript)
 - [Webpack](#webpack)
@@ -159,8 +158,13 @@ some additional content in `package.json` to work around
 ## Scripts
 
 - `npm test` - Runs `lint`, `karma` and `prod` tasks.
-- `npm run prod` - Runs webpack using the `prod` configuration.
-- `npm run dev` - Runs webpack using the `dev` configuration.
+- `npm start` - Starts the local server. You probably want to compile the
+  project in production mode before running this script to ensure the served
+  files are up-to-date.
+- `npm run prod` - Runs webpack using the `prod` configuration - this creates a
+  static and optimized version of all client-side code.
+- `npm run dev` - Runs webpack using the `dev` configuration and starts the
+  server in development mode.
 - `npm run lint` - Lints markdown, karma and webpack config files.
 - `npm run karma` - Runs the unit tests.
 
