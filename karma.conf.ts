@@ -23,7 +23,7 @@ const options: Karma.ConfigOptions & { [key: string]: any } = {
   // Files that will be loaded as entry points for test execution.
   files: [
     {
-      pattern: "src/tests.ts",
+      pattern: "client/tests.ts",
       watched: false,
     },
   ],
@@ -37,7 +37,7 @@ const options: Karma.ConfigOptions & { [key: string]: any } = {
 
   // Preprocess test files with webpack.
   preprocessors: {
-    "src/tests.ts": ["webpack"],
+    "client/tests.ts": ["webpack"],
   },
 
   // Report to console and the coverage report.

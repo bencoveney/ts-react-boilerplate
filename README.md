@@ -10,6 +10,7 @@ WebPack.
 - [Requirements](#requirements)
 - [React and TypeScript](#react-and-typescript)
 - [Webpack](#webpack)
+- [Express Server](#express-server)
 - [Linting](#linting)
 - [Styling](#styling)
 - [Unit Tests](#unit-tests)
@@ -51,9 +52,9 @@ by default.
 
 The project includes TypeScript compilation which can be configured in `tsconfig.json`.
 
-- `src/index.tsx` serves as the initial entry point and starts rendering React
+- `client/index.tsx` serves as the initial entry point and starts rendering React
   at the root of your document.
-- `src/components/` contains some sample react components.
+- `client/components/` contains some sample react components.
 
 All webpack configuration files are also written in TypeScript.
 
@@ -63,7 +64,7 @@ A complete up-to-date webpack configuration is included with:
 
 - Hot module reloading.
 - Source maps.
-- HTML page creation from the `src/index.ejs` template.
+- HTML page creation from the `client/index.ejs` template.
 - Favicons generation using `assets/favicon.png`.
 - Inclusion of style and image assets.
 
@@ -71,7 +72,7 @@ Relevant information (for example the project name) is loaded from the
 `package.json` file and used throughout.
 
 Webpack output goes to the `docs/` directory by default for easy integration
-with GitHub Pages.
+with GitHub Pages for static sites.
 
 - `webpack.common.ts` contains the base configuration that will be applied in
   all scenarios.
@@ -82,6 +83,17 @@ with GitHub Pages.
   compressed bundle.
 
 The file `.babelrc` supports hot module reloading (using `react-hot-loader`).
+
+## Express Server
+
+An express web-server is defined in `server/index.ts` which will serve the
+`docs` directory as a static site.
+
+When developing this file incorporates webpack's hot module reloading.
+
+If you need a server in production for funcionality like database access then
+you can extend the script as required. Even if your application is static, many
+app platforms will require a web-server component to host the files for users.
 
 ## Linting
 
@@ -112,7 +124,7 @@ Unit tests are run using Karma which is configured in `karma.conf.ts`. By
 default tests are executed in Chrome. `webpack.karma.ts` is a webpack
 configuration file specifically for running tests.
 
-Any files in the `src` repository named `*.test.ts` or `*.test.tsx` will be
+Any files in the `client` repository named `*.test.ts` or `*.test.tsx` will be
 included in test execution. The Jasmine test framework with Enzyme extensions
 (for React testing) are included for writing tests.
 
@@ -146,8 +158,13 @@ some additional content in `package.json` to work around
 ## Scripts
 
 - `npm test` - Runs `lint`, `karma` and `prod` tasks.
-- `npm run prod` - Runs webpack using the `prod` configuration.
-- `npm run dev` - Runs webpack using the `dev` configuration.
+- `npm start` - Starts the local server. You probably want to compile the
+  project in production mode before running this script to ensure the served
+  files are up-to-date.
+- `npm run prod` - Runs webpack using the `prod` configuration - this creates a
+  static and optimized version of all client-side code.
+- `npm run dev` - Runs webpack using the `dev` configuration and starts the
+  server in development mode.
 - `npm run lint` - Lints markdown, karma and webpack config files.
 - `npm run karma` - Runs the unit tests.
 

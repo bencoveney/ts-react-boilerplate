@@ -35,7 +35,15 @@ const configuration: Webpack.Configuration = {
   // Include source maps.
   devtool: "source-map",
 
+  entry: [
+    "webpack-hot-middleware/client?reload=true",
+  ],
+
   mode: "development",
+
+  output: {
+    publicPath: "/",
+  },
 
   plugins: [
     // Generate favicons.
@@ -49,6 +57,8 @@ const configuration: Webpack.Configuration = {
     new Webpack.WatchIgnorePlugin([
       /css\.d\.ts$/,
     ]),
+
+    new Webpack.HotModuleReplacementPlugin(),
   ],
 };
 

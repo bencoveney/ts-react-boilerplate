@@ -1,3 +1,4 @@
+import * as CleanPlugin from "clean-webpack-plugin";
 import * as UglifyJSPlugin from "uglifyjs-webpack-plugin";
 import * as Webpack from "webpack";
 import * as WebpackMerge from "webpack-merge";
@@ -15,6 +16,12 @@ const configuration: Webpack.Configuration = {
   mode: "production",
 
   plugins: [
+    // Clean the output directory to ensure fresh output.
+    new CleanPlugin(
+      [Common.outputDirectory],
+      { verbose: false },
+    ),
+
     // Compress JavaScript output.
     new UglifyJSPlugin({
       sourceMap: true,
